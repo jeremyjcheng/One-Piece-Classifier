@@ -10,5 +10,12 @@ import pandas as pd
 import numpy as np
 import sys
 
-print('System Version:', sys.version)
-print('PyTorch Version', torch.__version__)
+class OnePieceDataset(Dataset):
+    def __init__(self, data_dir, transform=None):
+        self.data = ImageFolder(data_dir, transform=transform)
+    
+    def __len__(self):
+        pass
+
+    def __getitem__(self, idx):
+        return 
