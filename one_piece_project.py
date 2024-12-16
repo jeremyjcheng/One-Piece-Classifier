@@ -12,17 +12,23 @@ import os
 # Custom Dataset Class
 class OnePieceDataset(Dataset):
     def __init__(self, data_dir, transform=None):
-        self.data = ImageFolder(data_dir, transform=transform)
-    
+        self.data = ImageFolder(data_dir)
+        self.transform = transform
+
+    def __getitem__(self, idx):
+        img, label = self.data[idx]
+        
+        # Convert to RGB if image has transparency
+        img = img.convert("RGBA").convert("RGB")
+        
+        if self.transform:
+            img = self.transform(img)
+        
+        return img, label
+
     def __len__(self):
         return len(self.data)
 
-    def __getitem__(self, idx):
-        return self.data[idx]
-    
-    @property
-    def classes(self):
-        return self.data.classes
 
 
 # Data directory
@@ -66,9 +72,13 @@ class SimpleOnePieceClassifier(nn.Module):
         output = self.classifier(x)
         return output
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print(device)
+
 # Model, Loss Function, and Optimizer
 num_classes = len(dataset.data.classes)
 model = SimpleOnePieceClassifier(num_classes=num_classes)
+model.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
@@ -80,6 +90,7 @@ for epoch in range(num_epochs):
     model.train()
     running_loss = 0.0
     for images, labels in train_loader:
+        images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         outputs = model(images)
         loss = criterion(outputs, labels)
@@ -97,8 +108,8 @@ for epoch in range(num_epochs):
         for images, labels in val_loader:
             outputs = model(images)
             loss = criterion(outputs, labels)
-            running_loss += loss.item() * inputs.size(0)
+            running_loss += loss.item() * images.size(0)
     val_loss = running_loss / len(val_loader.dataset)
     val_losses.append(val_loss)
 
-     print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}")
+    print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}")
