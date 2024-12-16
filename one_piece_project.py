@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -7,7 +8,7 @@ from torchvision.datasets import ImageFolder
 import timm
 import matplotlib.pyplot as plt
 import numpy as np
-import os
+from PIL import Image
 
 # Custom Dataset Class
 class OnePieceDataset(Dataset):
@@ -17,18 +18,13 @@ class OnePieceDataset(Dataset):
 
     def __getitem__(self, idx):
         img, label = self.data[idx]
-        
-        # Convert to RGB if image has transparency
-        img = img.convert("RGBA").convert("RGB")
-        
+        img = img.convert("RGBA").convert("RGB")  # Convert to RGB
         if self.transform:
             img = self.transform(img)
-        
         return img, label
 
     def __len__(self):
         return len(self.data)
-
 
 
 # Data directory
@@ -42,15 +38,13 @@ transform = transforms.Compose([
 
 # Full Dataset
 dataset = OnePieceDataset(data_dir, transform)
-#print(f"Total dataset size: {len(dataset)}")
 
 # Split Dataset into Train, Validation, and Test
 train_size = int(0.7 * len(dataset))  # 70% for training
 val_size = int(0.15 * len(dataset))   # 15% for validation
-test_size = len(dataset) - train_size - val_size  # Remaining for testing
+test_size = len(dataset) - train_size - val_size
 
 train_dataset, val_dataset, test_dataset = random_split(dataset, [train_size, val_size, test_size])
-#print(f"Train size: {len(train_dataset)}, Val size: {len(val_dataset)}, Test size: {len(test_dataset)}")
 
 # DataLoaders
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
@@ -68,12 +62,12 @@ class SimpleOnePieceClassifier(nn.Module):
 
     def forward(self, x):
         x = self.features(x)
-        x = torch.flatten(x, 1)  # Flatten the feature maps
+        x = torch.flatten(x, 1)
         output = self.classifier(x)
         return output
 
+
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(device)
 
 # Model, Loss Function, and Optimizer
 num_classes = len(dataset.data.classes)
@@ -82,34 +76,83 @@ model.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# Training Loop
-num_epochs = 5
-train_losses, val_losses = [], []
+# Path to save/load model
+model_path = '/Users/jeremycheng/Desktop/Desktop - Jeremy’s MacBook Pro/One_Piece_Model.pth'
 
-for epoch in range(num_epochs):
-    model.train()
-    running_loss = 0.0
-    for images, labels in train_loader:
-        images, labels = images.to(device), labels.to(device)
-        optimizer.zero_grad()
-        outputs = model(images)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
-        running_loss += loss.item() * images.size(0)
-    
-    train_loss = running_loss / len(train_loader.dataset)
-    train_losses.append(train_loss)
-    
-    #Validation
+# Check if model exists
+if os.path.exists(model_path):
+    model.load_state_dict(torch.load(model_path))
     model.eval()
-    running_loss = 0.0
-    with torch.no_grad():
-        for images, labels in val_loader:
+    print("Model loaded successfully. Skipping training...")
+else:
+    print("Training model...")
+    num_epochs = 5
+    train_losses, val_losses = [], []
+
+    for epoch in range(num_epochs):
+        model.train()
+        running_loss = 0.0
+        for images, labels in train_loader:
+            images, labels = images.to(device), labels.to(device)
+            optimizer.zero_grad()
             outputs = model(images)
             loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
             running_loss += loss.item() * images.size(0)
-    val_loss = running_loss / len(val_loader.dataset)
-    val_losses.append(val_loss)
+        
+        train_loss = running_loss / len(train_loader.dataset)
+        train_losses.append(train_loss)
 
-    print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}")
+        # Validation
+        model.eval()
+        running_loss = 0.0
+        with torch.no_grad():
+            for images, labels in val_loader:
+                images, labels = images.to(device), labels.to(device)
+                outputs = model(images)
+                loss = criterion(outputs, labels)
+                running_loss += loss.item() * images.size(0)
+        val_loss = running_loss / len(val_loader.dataset)
+        val_losses.append(val_loss)
+
+        print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}")
+
+    torch.save(model.state_dict(), model_path)
+    print("Model saved successfully!")
+
+# Preprocessing and Prediction Functions
+def preprocess_image(image_path, transform):
+    image = Image.open(image_path).convert("RGB")
+    return image, transform(image).unsqueeze(0)
+
+def predict(model, image_tensor, device):
+    model.eval()
+    with torch.no_grad():
+        image_tensor = image_tensor.to(device)
+        outputs = model(image_tensor)
+        probabilities = torch.nn.functional.softmax(outputs, dim=1)
+    return probabilities.cpu().numpy().flatten()
+
+def visualize_predictions(original_image, probabilities, class_names):
+    fig, axarr = plt.subplots(1, 2, figsize=(14, 7))
+
+    # Display original image
+    axarr[0].imshow(original_image)
+    axarr[0].axis("off")
+
+    # Plot probabilities
+    axarr[1].barh(class_names, probabilities)
+    axarr[1].set_xlabel("Probability")
+    axarr[1].set_title("Class Predictions")
+    axarr[1].set_xlim(0, 1)
+
+    plt.tight_layout()
+    plt.show()
+
+# Test Inference
+test_image = '/Users/jeremycheng/Downloads/OnePieceDataset/Data/Data/Ace/1.jpg'
+original_image, image_tensor = preprocess_image(test_image, transform)
+probabilities = predict(model, image_tensor, device)
+class_names = dataset.data.classes
+visualize_predictions(original_image, probabilities, class_names)
