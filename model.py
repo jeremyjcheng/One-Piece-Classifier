@@ -151,7 +151,7 @@ def visualize_predictions(original_image, probabilities, class_names):
     plt.show()
 
 # Test Inference
-test_image = '/Users/jeremycheng/Downloads/OnePieceDataset/Data/Data/Ace/1.jpg'
+test_image = '/Users/jeremycheng/Downloads/OnePieceDataset/Data/Data/Shanks/1.png'
 original_image, image_tensor = preprocess_image(test_image, transform)
 probabilities = predict(model, image_tensor, device)
 class_names = dataset.data.classes
