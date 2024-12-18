@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Character Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>One Piece Character Classifier</h1>
+        <p>Drag and drop an image of a One Piece character below to find out who it is!</p>
+        
+        <!-- Drag-and-Drop Area -->
+        <div id="drop-area">
+            <p>Drag and drop an image here or click to upload</p>
+            <input type="file" id="file-input" accept="image/*" hidden>
+        </div>
+
+        <!-- Preview Image -->
+        <img id="preview" alt="Image Preview" style="display:none;">
+
+        <!-- Result -->
+        <div id="result"></div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
