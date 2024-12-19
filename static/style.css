@@ -14,6 +14,7 @@ body {
     background-color: #fff;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    text-align: center;
 }
 
 #drop-area {
@@ -31,12 +32,13 @@ body {
 
 #preview {
     display: none; /* Initially hidden */
-    width: 200px;  /* Desired width */
+    width: 200px; /* Desired width */
     height: 200px; /* Desired height */
-    object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
-    margin-top: 20px; /* Optional: spacing from the drop area */
+    object-fit: cover; /* Ensures the image fits the box */
+    margin: 20px auto; /* Adds spacing and centers the image horizontally */
     border: 2px solid #ddd; /* Optional: border for styling */
     border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
 }
 
 
