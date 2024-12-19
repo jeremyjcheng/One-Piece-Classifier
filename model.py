@@ -81,7 +81,7 @@ model_path = '/Users/jeremycheng/Desktop/Desktop - Jeremy’s MacBook Pro/One_Pi
 
 # Check if model exists
 if os.path.exists(model_path):
-    model.load_state_dict(torch.load(model_path))
+    model.load_state_dict(torch.load(model_path, weights_only=True))
     model.eval()
     print("Model loaded successfully. Skipping training...")
 else:
