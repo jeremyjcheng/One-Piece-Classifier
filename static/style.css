@@ -30,10 +30,15 @@ body {
 }
 
 #preview {
-    margin-top: 10px;
-    max-width: 100%;
-    border-radius: 5px;
+    display: none; /* Initially hidden */
+    width: 200px;  /* Desired width */
+    height: 200px; /* Desired height */
+    object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+    margin-top: 20px; /* Optional: spacing from the drop area */
+    border: 2px solid #ddd; /* Optional: border for styling */
+    border-radius: 10px; /* Optional: rounded corners */
 }
+
 
 #result {
     margin-top: 15px;

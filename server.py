@@ -36,7 +36,6 @@ def predict_route():
         
         # Validate incoming data
         data = request.get_json()
-        print("Received JSON data:", data)  # Log incoming JSON data
         if not data or 'image' not in data:
             print("Error: No image data provided")
             return jsonify({'error': 'No image data provided'}), 400
