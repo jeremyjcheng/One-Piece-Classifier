@@ -22,8 +22,9 @@ def static_files(path):
 
 @app.route('/predict', methods=['POST', 'OPTIONS'])
 def predict_route():
-    # Handle preflight OPTIONS request explicitly
+    # Handle preflight OPTIONS request
     if request.method == "OPTIONS":
+        print("Received OPTIONS preflight request")
         response = make_response()
         response.headers["Access-Control-Allow-Origin"] = "*"
         response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
@@ -33,44 +34,43 @@ def predict_route():
     try:
         print("Request received: Starting image processing...")
         
-        # Check if 'image' key exists in the request
+        # Validate incoming data
         data = request.get_json()
+        print("Received JSON data:", data)  # Log incoming JSON data
         if not data or 'image' not in data:
-            print("Error: No image data provided.")
+            print("Error: No image data provided")
             return jsonify({'error': 'No image data provided'}), 400
 
         # Decode Base64 image
-        print("Decoding the Base64 image...")
+        print("Decoding Base64 image...")
         image_data = data['image']
         try:
             image = Image.open(io.BytesIO(base64.b64decode(image_data.split(",")[1]))).convert("RGB")
+            print("Image successfully decoded")  # Confirm image was decoded
         except Exception as e:
             print(f"Error decoding image: {e}")
             return jsonify({'error': 'Failed to decode image data'}), 400
 
         # Preprocess the image
-        print("Transforming the image...")
+        print("Transforming image for model...")
         transformed_image = transform(image).unsqueeze(0).to(device)
+        print("Image successfully transformed")  # Confirm preprocessing
 
         # Run model prediction
-        print("Running the model prediction...")
+        print("Running model prediction...")
         probabilities = predict(model, transformed_image, device)
-        print(f"Raw probabilities: {probabilities}")
+        print("Prediction probabilities:", probabilities)
 
         # Get class name
         class_names = dataset.data.classes
         predicted_class = class_names[probabilities.argmax()]
         print(f"Predicted class: {predicted_class}")
 
-        response = jsonify({'character': predicted_class})
-        response.headers["Access-Control-Allow-Origin"] = "*"
-        return response
+        return jsonify({'character': predicted_class}), 200
 
     except Exception as e:
         print(f"Error occurred: {e}")
-        response = jsonify({'error': str(e)})
-        response.headers["Access-Control-Allow-Origin"] = "*"
-        return response, 500
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
