@@ -22,13 +22,13 @@ The result is displayed on the interface.
 
 # Installation and Setup
 1. Clone the repository:
-'''git clone <repository-url>'''
+```git clone [<repository-url>](https://github.com/jeremyjcheng/One-Piece-Classifier)```
 2. Navigate to the project directory:
-'''cd one_piece_classifier'''
+```cd one_piece_classifier```
 3. Install the required dependencies:
-'''pip install -r requirements.txt'''
+```pip install -r requirements.txt```
 4. Start the Flask server:
-'''python server.py'''
+```python server.py```
 5. Open http://127.0.0.1:5000 in your web browser.
 
 Model Training
