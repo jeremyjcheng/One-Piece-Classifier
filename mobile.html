@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Piece Classifier - Mobile</title>
+    <link rel="stylesheet" href="static/mobile.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <div class="header-content">
+        <i class="fas fa-ship"></i>
+        <h1>One Piece Classifier</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mobile-main">
+      <!-- Camera/Upload Section -->
+      <section class="upload-section">
+        <div class="upload-container">
+          <div class="upload-area" id="drop-area">
+            <i class="fas fa-camera"></i>
+            <h3>Take Photo or Upload</h3>
+            <p>Tap to capture or select an image</p>
+            <button class="camera-btn" onclick="openCamera()">
+              <i class="fas fa-camera"></i> Camera
+            </button>
+            <button class="upload-btn" onclick="openFilePicker()">
+              <i class="fas fa-image"></i> Gallery
+            </button>
+          </div>
+          <input
+            type="file"
+            id="file-input"
+            accept="image/*"
+            capture="environment"
+            hidden
+          />
+        </div>
+      </section>
+
+      <!-- Preview Section -->
+      <section
+        class="preview-section"
+        id="preview-section"
+        style="display: none"
+      >
+        <div class="preview-container">
+          <div class="preview-header">
+            <h3>Image Preview</h3>
+            <button class="close-btn" onclick="closePreview()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <img id="preview" alt="Image Preview" />
+          <button class="analyze-btn" onclick="analyzeImage()">
+            <i class="fas fa-search"></i> Analyze Image
+          </button>
+        </div>
+      </section>
+
+      <!-- Result Section -->
+      <section class="result-section" id="result-section" style="display: none">
+        <div class="result-container">
+          <div class="result-header">
+            <h3>Character Found!</h3>
+            <div class="confidence-badge" id="confidence-badge"></div>
+          </div>
+
+          <div class="character-card">
+            <div class="character-image">
+              <img id="character-img" alt="Character" />
+            </div>
+            <div class="character-info">
+              <h4 id="character-name"></h4>
+              <p id="character-description"></p>
+              <div class="character-stats">
+                <div class="stat-row">
+                  <span class="stat-label">Bounty:</span>
+                  <span class="stat-value" id="character-bounty"></span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">Crew:</span>
+                  <span class="stat-value" id="character-crew"></span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">Devil Fruit:</span>
+                  <span class="stat-value" id="character-fruit"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="probability-section">
+            <h4>Confidence Levels</h4>
+            <div class="probability-chart" id="probability-chart"></div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="share-btn" onclick="shareResult()">
+              <i class="fas fa-share"></i> Share
+            </button>
+            <button class="new-btn" onclick="startOver()">
+              <i class="fas fa-plus"></i> New Analysis
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="quick-actions">
+        <div class="action-grid">
+          <button class="action-btn" onclick="showGallery()">
+            <i class="fas fa-images"></i>
+            <span>Gallery</span>
+          </button>
+          <button class="action-btn" onclick="showStats()">
+            <i class="fas fa-chart-bar"></i>
+            <span>Stats</span>
+          </button>
+          <button class="action-btn" onclick="showAbout()">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+          </button>
+          <button class="action-btn" onclick="showSettings()">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Analyzing image...</p>
+      </div>
+    </div>
+
+    <!-- Modal for Gallery/Stats/About -->
+    <div class="modal" id="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-title"></h3>
+          <button class="close-btn" onclick="closeModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <script src="static/mobile.js"></script>
+  </body>
+</html>

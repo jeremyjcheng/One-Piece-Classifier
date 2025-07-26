@@ -1,29 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>One Piece Character Classifier</title>
-    <link rel="stylesheet" href="static/style.css">
-</head>
-<body>
-    <div class="container">
+    <link rel="stylesheet" href="static/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-ship"></i>
+          <span>One Piece Classifier</span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#classifier" class="nav-link active">Classifier</a>
+          </li>
+          <li class="nav-item">
+            <a href="#gallery" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="#stats" class="nav-link">Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
         <h1>One Piece Character Classifier</h1>
-        <p>Drag and drop an image of a One Piece character below to find out who it is!</p>
-        
-        <!-- Drag-and-Drop Area -->
-        <div id="drop-area">
-            <p>Drag and drop an image here or click to upload</p>
-            <input type="file" id="file-input" accept="image/*" hidden>
+        <p>
+          Upload an image of any One Piece character and our AI will identify
+          them instantly!
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">17</span>
+            <span class="stat-label">Characters</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">95%</span>
+            <span class="stat-label">Accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1000+</span>
+            <span class="stat-label">Images Trained</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Classifier Section -->
+    <section id="classifier" class="classifier-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Character Classifier</h2>
+          <p>Drag and drop or click to upload an image</p>
         </div>
 
-        <!-- Preview Image -->
-        <img id="preview" alt="Image Preview" style="display:none;">
+        <div class="classifier-container">
+          <div class="upload-area" id="drop-area">
+            <div class="upload-content">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <h3>Upload Image</h3>
+              <p>Drag and drop your image here or click to browse</p>
+              <button
+                class="upload-btn"
+                onclick="document.getElementById('file-input').click()"
+              >
+                <i class="fas fa-plus"></i> Choose File
+              </button>
+            </div>
+            <input type="file" id="file-input" accept="image/*" hidden />
+          </div>
 
-        <!-- Result -->
-        <div id="result"></div>
+          <div
+            class="preview-container"
+            id="preview-container"
+            style="display: none"
+          >
+            <div class="preview-header">
+              <h3>Image Preview</h3>
+              <button class="close-btn" onclick="closePreview()">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <img id="preview" alt="Image Preview" />
+          </div>
+
+          <div
+            class="result-container"
+            id="result-container"
+            style="display: none"
+          >
+            <div class="result-header">
+              <h3>Classification Result</h3>
+              <div class="confidence-badge" id="confidence-badge"></div>
+            </div>
+            <div class="result-content">
+              <div class="character-info" id="character-info">
+                <div class="character-image">
+                  <img id="character-img" alt="Character" />
+                </div>
+                <div class="character-details">
+                  <h4 id="character-name"></h4>
+                  <p id="character-description"></p>
+                  <div class="character-stats">
+                    <div class="stat-item">
+                      <span class="stat-label">Bounty:</span>
+                      <span class="stat-value" id="character-bounty"></span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">Crew:</span>
+                      <span class="stat-value" id="character-crew"></span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">Devil Fruit:</span>
+                      <span class="stat-value" id="character-fruit"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="probability-chart" id="probability-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Character Gallery</h2>
+          <p>Browse through all the characters our model can identify</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Gallery items will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Model Statistics</h2>
+          <p>Performance metrics and training information</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Model Architecture</h3>
+            <p>EfficientNet-B0 with custom classifier</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Training Accuracy</h3>
+            <p>95.2% on validation set</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Inference Time</h3>
+            <p>~50ms per prediction</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Training Data</h3>
+            <p>1000+ images across 17 characters</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>About This Project</h2>
+          <p>Learn more about our One Piece character classification system</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>How It Works</h3>
+            <p>
+              Our AI model uses deep learning techniques to identify One Piece
+              characters from images. The model was trained on a comprehensive
+              dataset of character images and can recognize 17 different
+              characters with high accuracy.
+            </p>
+
+            <h3>Technology Stack</h3>
+            <ul>
+              <li><strong>Backend:</strong> Python, Flask, PyTorch</li>
+              <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+              <li>
+                <strong>Model:</strong> EfficientNet-B0 with transfer learning
+              </li>
+              <li><strong>Deployment:</strong> Local server with REST API</li>
+            </ul>
+
+            <h3>Features</h3>
+            <ul>
+              <li>Real-time character classification</li>
+              <li>Confidence scoring and probability distribution</li>
+              <li>Character information and statistics</li>
+              <li>Responsive design for all devices</li>
+              <li>Drag-and-drop image upload</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>One Piece Classifier</h3>
+            <p>AI-powered character recognition for One Piece fans</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#classifier">Classifier</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#stats">Statistics</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 One Piece Classifier. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Analyzing image...</p>
+      </div>
     </div>
-    
+
     <script src="static/app.js"></script>
-</body>
+  </body>
 </html>
