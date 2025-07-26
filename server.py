@@ -243,6 +243,23 @@ def predict_route():
             print(f"Error decoding image: {e}")
             return jsonify({'error': 'Failed to decode image data'}), 400
 
+        # Try face detection first to improve recognition
+        print("Attempting face detection...")
+        try:
+            # Convert PIL image to OpenCV format for face detection
+            image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+            processed_image = face_detector.crop_face(image_cv)
+            
+            if processed_image is not None:
+                # Convert back to PIL format
+                processed_image_rgb = cv2.cvtColor(processed_image, cv2.COLOR_BGR2RGB)
+                image = Image.fromarray(processed_image_rgb)
+                print("Face detection successful, using cropped image")
+            else:
+                print("Face detection failed, using original image")
+        except Exception as e:
+            print(f"Face detection error: {e}, using original image")
+
         # Preprocess the image
         print("Transforming image for model...")
         transformed_image = transform(image).unsqueeze(0).to(device)

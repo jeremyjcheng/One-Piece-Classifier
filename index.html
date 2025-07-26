@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -18,10 +18,10 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
-        <div class="nav-logo">
+        <a href="#" class="nav-logo">
           <i class="fas fa-ship"></i>
           <span>One Piece Classifier</span>
-        </div>
+        </a>
         <ul class="nav-menu">
           <li class="nav-item">
             <a href="#classifier" class="nav-link active">Classifier</a>
@@ -50,11 +50,11 @@
         <h1>One Piece Character Classifier</h1>
         <p>
           Upload an image of any One Piece character and our AI will identify
-          them instantly!
+          them instantly with high accuracy and detailed character information.
         </p>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-number">17</span>
+            <span class="stat-number">18</span>
             <span class="stat-label">Characters</span>
           </div>
           <div class="stat">
@@ -74,7 +74,10 @@
       <div class="container">
         <div class="section-header">
           <h2>Character Classifier</h2>
-          <p>Drag and drop or click to upload an image</p>
+          <p>
+            Drag and drop or click to upload an image for instant character
+            recognition
+          </p>
         </div>
 
         <div class="classifier-container">
@@ -99,12 +102,12 @@
             style="display: none"
           >
             <div class="preview-header">
-              <h3>Image Preview</h3>
+              <h3>Preview</h3>
               <button class="close-btn" onclick="closePreview()">
                 <i class="fas fa-times"></i>
               </button>
             </div>
-            <img id="preview" alt="Image Preview" />
+            <img id="preview" alt="Preview" />
           </div>
 
           <div
@@ -113,34 +116,42 @@
             style="display: none"
           >
             <div class="result-header">
-              <h3>Classification Result</h3>
-              <div class="confidence-badge" id="confidence-badge"></div>
+              <h3 id="result-character">Character Name</h3>
+              <div class="confidence-badge" id="confidence-badge">
+                Confidence: 95%
+              </div>
             </div>
             <div class="result-content">
-              <div class="character-info" id="character-info">
+              <div class="character-info">
                 <div class="character-image">
-                  <img id="character-img" alt="Character" />
+                  <img id="character-image" alt="Character" />
                 </div>
                 <div class="character-details">
-                  <h4 id="character-name"></h4>
-                  <p id="character-description"></p>
+                  <h4 id="character-name">Character Name</h4>
+                  <p id="character-description">
+                    Character description will appear here.
+                  </p>
                   <div class="character-stats">
                     <div class="stat-item">
-                      <span class="stat-label">Bounty:</span>
-                      <span class="stat-value" id="character-bounty"></span>
+                      <div class="stat-label">Bounty</div>
+                      <div class="stat-value" id="character-bounty">
+                        Unknown
+                      </div>
                     </div>
                     <div class="stat-item">
-                      <span class="stat-label">Crew:</span>
-                      <span class="stat-value" id="character-crew"></span>
+                      <div class="stat-label">Crew</div>
+                      <div class="stat-value" id="character-crew">Unknown</div>
                     </div>
                     <div class="stat-item">
-                      <span class="stat-label">Devil Fruit:</span>
-                      <span class="stat-value" id="character-fruit"></span>
+                      <div class="stat-label">Devil Fruit</div>
+                      <div class="stat-value" id="character-fruit">Unknown</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="probability-chart" id="probability-chart"></div>
+              <div class="probability-chart" id="probability-chart">
+                <!-- Chart will be inserted here -->
+              </div>
             </div>
           </div>
         </div>
@@ -152,7 +163,10 @@
       <div class="container">
         <div class="section-header">
           <h2>Character Gallery</h2>
-          <p>Browse through all the characters our model can identify</p>
+          <p>
+            Browse through all the characters our model can identify with
+            detailed information
+          </p>
         </div>
         <div class="gallery-grid" id="gallery-grid">
           <!-- Gallery items will be populated by JavaScript -->
@@ -194,7 +208,7 @@
               <i class="fas fa-database"></i>
             </div>
             <h3>Training Data</h3>
-            <p>1000+ images across 17 characters</p>
+            <p>1000+ images across 18 characters</p>
           </div>
         </div>
       </div>
@@ -211,10 +225,11 @@
           <div class="about-text">
             <h3>How It Works</h3>
             <p>
-              Our AI model uses deep learning techniques to identify One Piece
-              characters from images. The model was trained on a comprehensive
-              dataset of character images and can recognize 17 different
-              characters with high accuracy.
+              Our AI model uses advanced deep learning techniques to identify
+              One Piece characters from images. The model was trained on a
+              comprehensive dataset of character images and can recognize 18
+              different characters with high accuracy using state-of-the-art
+              computer vision.
             </p>
 
             <h3>Technology Stack</h3>
@@ -224,16 +239,21 @@
               <li>
                 <strong>Model:</strong> EfficientNet-B0 with transfer learning
               </li>
+              <li>
+                <strong>Face Detection:</strong> Advanced neural network-based
+                detection
+              </li>
               <li><strong>Deployment:</strong> Local server with REST API</li>
             </ul>
 
             <h3>Features</h3>
             <ul>
-              <li>Real-time character classification</li>
+              <li>Real-time character classification with high accuracy</li>
+              <li>Advanced face detection and image processing</li>
               <li>Confidence scoring and probability distribution</li>
-              <li>Character information and statistics</li>
-              <li>Responsive design for all devices</li>
-              <li>Drag-and-drop image upload</li>
+              <li>Comprehensive character information and statistics</li>
+              <li>Responsive design optimized for all devices</li>
+              <li>Drag-and-drop image upload with preview</li>
             </ul>
           </div>
         </div>
@@ -247,6 +267,11 @@
           <div class="footer-section">
             <h3>One Piece Classifier</h3>
             <p>AI-powered character recognition for One Piece fans</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
           </div>
           <div class="footer-section">
             <h4>Quick Links</h4>
@@ -258,12 +283,13 @@
             </ul>
           </div>
           <div class="footer-section">
-            <h4>Connect</h4>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
+            <h4>Technology</h4>
+            <ul>
+              <li><a href="#">PyTorch</a></li>
+              <li><a href="#">Flask</a></li>
+              <li><a href="#">OpenCV</a></li>
+              <li><a href="#">EfficientNet</a></li>
+            </ul>
           </div>
         </div>
         <div class="footer-bottom">
@@ -273,10 +299,10 @@
     </footer>
 
     <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loading-overlay" style="display: none">
+    <div class="loading-overlay" id="loading-overlay">
       <div class="loading-content">
         <div class="spinner"></div>
-        <p>Analyzing image...</p>
+        <p>Analyzing character...</p>
       </div>
     </div>
 

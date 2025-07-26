@@ -1,160 +1,330 @@
-// Character data for enhanced UI
+// Character data with updated information
 const characterData = {
-  Luffy: {
+  luffy: {
     name: "Monkey D. Luffy",
+    image: "static/gallery/op_dateset/Data/Data/Luffy/1.jpg",
     description:
-      "Captain of the Straw Hat Pirates and wielder of the Gomu Gomu no Mi (Gum-Gum Fruit).",
+      "Captain of the Straw Hat Pirates and wielder of the Gomu Gomu no Mi (Gum-Gum Fruit). Known for his rubber powers and unwavering determination to become the Pirate King.",
     bounty: "3,000,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "Gomu Gomu no Mi",
-    image: "/characters/Luffy",
   },
-  Zoro: {
+  zoro: {
     name: "Roronoa Zoro",
+    image: "static/gallery/op_dateset/Data/Data/Zoro/1.jpg",
     description:
-      "Swordsman of the Straw Hat Pirates and one of the strongest swordsmen in the world.",
+      "Swordsman and first mate of the Straw Hat Pirates. A master of the Three Sword Style and aspiring to become the world's greatest swordsman.",
     bounty: "1,111,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "None",
-    image: "/characters/Zoro",
   },
-  Nami: {
+  nami: {
     name: "Nami",
-    description: "Navigator of the Straw Hat Pirates and expert cartographer.",
+    image: "static/gallery/op_dateset/Data/Data/Nami/1.jpeg",
+    description:
+      "Navigator of the Straw Hat Pirates and expert cartographer. Skilled with the Clima-Tact and has a deep understanding of weather patterns.",
     bounty: "366,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "None",
-    image: "/characters/Nami",
   },
-  Usopp: {
+  usopp: {
     name: "Usopp",
-    description: "Sniper of the Straw Hat Pirates and a skilled marksman.",
+    image: "static/gallery/op_dateset/Data/Data/Usopp/1.png",
+    description:
+      "Sniper of the Straw Hat Pirates and skilled inventor. Known for his incredible marksmanship and creative Pop Green ammunition.",
     bounty: "500,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "None",
-    image: "/characters/Usopp",
   },
-  Sanji: {
+  sanji: {
     name: "Vinsmoke Sanji",
-    description: "Cook of the Straw Hat Pirates and expert in Black Leg Style.",
+    image: "static/gallery/op_dateset/Data/Data/Sanji/1.jpg",
+    description:
+      "Chef and third strongest fighter of the Straw Hat Pirates. Master of the Black Leg Style and former member of the Vinsmoke family.",
     bounty: "1,032,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "None",
-    image: "/characters/Sanji",
   },
-  Chopper: {
+  chopper: {
     name: "Tony Tony Chopper",
+    image: "static/gallery/op_dateset/Data/Data/Chopper/1.png",
     description:
-      "Doctor of the Straw Hat Pirates and wielder of the Hito Hito no Mi.",
+      "Doctor and reindeer of the Straw Hat Pirates. Ate the Hito Hito no Mi (Human-Human Fruit) and can transform into various forms.",
     bounty: "1,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "Hito Hito no Mi",
-    image: "/characters/Chopper",
   },
-  Robin: {
+  robin: {
     name: "Nico Robin",
+    image: "static/gallery/op_dateset/Data/Data/Robin/1.png",
     description:
-      "Archaeologist of the Straw Hat Pirates and wielder of the Hana Hana no Mi.",
+      "Archaeologist of the Straw Hat Pirates and wielder of the Hana Hana no Mi (Flower-Flower Fruit). The last survivor of Ohara.",
     bounty: "930,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "Hana Hana no Mi",
-    image: "/characters/Robin",
   },
-  Franky: {
+  franky: {
     name: "Franky",
-    description: "Shipwright of the Straw Hat Pirates and a cyborg.",
+    image: "static/gallery/op_dateset/Data/Data/Franky/1.png",
+    description:
+      "Shipwright of the Straw Hat Pirates and a cyborg. Built the Thousand Sunny and is known for his radical personality and cola-powered attacks.",
     bounty: "394,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "None",
-    image: "/characters/Franky",
   },
-  Brook: {
+  brook: {
     name: "Brook",
+    image: "static/gallery/op_dateset/Data/Data/Brook/1.png",
     description:
-      "Musician of the Straw Hat Pirates and wielder of the Yomi Yomi no Mi.",
+      "Musician and skeleton of the Straw Hat Pirates. Ate the Yomi Yomi no Mi (Revive-Revive Fruit) and is a master swordsman and musician.",
     bounty: "383,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "Yomi Yomi no Mi",
-    image: "/characters/Brook",
   },
-  Jinbe: {
+  jinbei: {
     name: "Jinbe",
+    image: "static/gallery/op_dateset/Data/Data/Jinbei/1.jpg",
     description:
-      "Helmsman of the Straw Hat Pirates and former Warlord of the Sea.",
+      "Helmsman of the Straw Hat Pirates and former Warlord of the Sea. A fish-man karate master and former captain of the Sun Pirates.",
     bounty: "1,100,000,000 Berries",
     crew: "Straw Hat Pirates",
     fruit: "None",
-    image: "/characters/Jinbe",
   },
-  Shanks: {
+  shanks: {
     name: "Red-Haired Shanks",
+    image: "static/gallery/op_dateset/Data/Data/Shanks/1.png",
     description:
-      "Captain of the Red Hair Pirates and one of the Four Emperors.",
+      "Captain of the Red Hair Pirates and one of the Four Emperors. Former member of the Roger Pirates and mentor to Luffy.",
     bounty: "4,048,900,000 Berries",
     crew: "Red Hair Pirates",
     fruit: "None",
-    image: "https://via.placeholder.com/120x120/ff3838/ffffff?text=Shanks",
   },
-  Ace: {
+  ace: {
     name: "Portgas D. Ace",
+    image: "static/gallery/op_dateset/Data/Data/Ace/1.jpg",
     description:
-      "Former commander of the Whitebeard Pirates and wielder of the Mera Mera no Mi.",
-    bounty: "550,000,000 Berries",
+      "Former commander of the Whitebeard Pirates and wielder of the Mera Mera no Mi (Flame-Flame Fruit). Brother of Luffy and Sabo.",
+    bounty: "5,500,000,000 Berries",
     crew: "Whitebeard Pirates",
     fruit: "Mera Mera no Mi",
-    image: "https://via.placeholder.com/120x120/ff9f43/ffffff?text=Ace",
   },
-  Law: {
+  law: {
     name: "Trafalgar Law",
+    image: "static/gallery/op_dateset/Data/Data/Law/1.png",
     description:
-      "Captain of the Heart Pirates and wielder of the Ope Ope no Mi.",
+      "Captain of the Heart Pirates and wielder of the Ope Ope no Mi (Op-Op Fruit). A former Warlord and ally of the Straw Hats.",
     bounty: "3,000,000,000 Berries",
     crew: "Heart Pirates",
     fruit: "Ope Ope no Mi",
-    image: "https://via.placeholder.com/120x120/00d2d3/ffffff?text=Law",
   },
-  Kid: {
-    name: "Eustass Kid",
+  akainu: {
+    name: "Sakazuki (Akainu)",
+    image: "static/gallery/op_dateset/Data/Data/Akainu/1.png",
     description:
-      "Captain of the Kid Pirates and wielder of the Jiki Jiki no Mi.",
-    bounty: "3,000,000,000 Berries",
-    crew: "Kid Pirates",
-    fruit: "Jiki Jiki no Mi",
-    image: "https://via.placeholder.com/120x120/ff6b6b/ffffff?text=Kid",
-  },
-  Dragon: {
-    name: "Monkey D. Dragon",
-    description: "Leader of the Revolutionary Army and father of Luffy.",
+      "Fleet Admiral of the Marines and wielder of the Magu Magu no Mi (Magma-Magma Fruit). Known for his absolute justice ideology.",
     bounty: "Unknown",
-    crew: "Revolutionary Army",
-    fruit: "Unknown",
-    image: "https://via.placeholder.com/120x120/2c3e50/ffffff?text=Dragon",
+    crew: "Marines",
+    fruit: "Magu Magu no Mi",
   },
-  Whitebeard: {
-    name: "Edward Newgate",
+  crocodile: {
+    name: "Sir Crocodile",
+    image: "static/gallery/op_dateset/Data/Data/Crocodile/1.png",
     description:
-      "Former captain of the Whitebeard Pirates and one of the strongest pirates.",
-    bounty: "5,564,800,000 Berries",
-    crew: "Whitebeard Pirates",
-    fruit: "Gura Gura no Mi",
-    image: "https://via.placeholder.com/120x120/34495e/ffffff?text=Whitebeard",
+      "Former Warlord and wielder of the Suna Suna no Mi (Sand-Sand Fruit). Leader of Baroque Works and former ruler of Alabasta.",
+    bounty: "1,965,000,000 Berries",
+    crew: "Cross Guild",
+    fruit: "Suna Suna no Mi",
   },
-  Roger: {
-    name: "Gol D. Roger",
-    description: "Former Pirate King and captain of the Roger Pirates.",
-    bounty: "5,564,800,000 Berries",
-    crew: "Roger Pirates",
-    fruit: "Unknown",
-    image: "https://via.placeholder.com/120x120/e74c3c/ffffff?text=Roger",
+  kurohige: {
+    name: "Marshall D. Teach (Blackbeard)",
+    image: "static/gallery/op_dateset/Data/Data/Kurohige/1.png",
+    description:
+      "Captain of the Blackbeard Pirates and wielder of the Yami Yami no Mi (Dark-Dark Fruit). One of the Four Emperors.",
+    bounty: "3,996,000,000 Berries",
+    crew: "Blackbeard Pirates",
+    fruit: "Yami Yami no Mi",
+  },
+  mihawk: {
+    name: "Dracule Mihawk",
+    image: "static/gallery/op_dateset/Data/Data/Mihawk/1.png",
+    description:
+      "World's Greatest Swordsman and former Warlord of the Sea. Wielder of the legendary sword Yoru and member of Cross Guild.",
+    bounty: "3,590,000,000 Berries",
+    crew: "Cross Guild",
+    fruit: "None",
+  },
+  rayleigh: {
+    name: "Silvers Rayleigh",
+    image: "static/gallery/op_dateset/Data/Data/Rayleigh/1.png",
+    description:
+      "Former first mate of the Roger Pirates and mentor to Luffy. Known as the 'Dark King' and a master of all three types of Haki.",
+    bounty: "Unknown",
+    crew: "Roger Pirates (Former)",
+    fruit: "None",
   },
 };
 
-// Navigation functionality
-document.addEventListener("DOMContentLoaded", () => {
+// DOM elements
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("file-input");
+const previewContainer = document.getElementById("preview-container");
+const preview = document.getElementById("preview");
+const resultContainer = document.getElementById("result-container");
+const loadingOverlay = document.getElementById("loading-overlay");
+const galleryGrid = document.getElementById("gallery-grid");
+
+// Initialize gallery
+function initializeGallery() {
+  galleryGrid.innerHTML = "";
+
+  Object.entries(characterData).forEach(([key, character]) => {
+    const galleryItem = document.createElement("div");
+    galleryItem.className = "gallery-item";
+
+    galleryItem.innerHTML = `
+      <img src="${character.image}" alt="${character.name}" loading="lazy">
+      <div class="gallery-item-content">
+        <h3>${character.name}</h3>
+        <p>${character.description}</p>
+        <div class="gallery-stats">
+          <span><strong>Bounty:</strong> ${character.bounty}</span>
+          <span><strong>Crew:</strong> ${character.crew}</span>
+          <span><strong>Devil Fruit:</strong> ${character.fruit}</span>
+        </div>
+      </div>
+    `;
+
+    galleryGrid.appendChild(galleryItem);
+  });
+}
+
+// File handling
+function handleFile(file) {
+  if (!file.type.startsWith("image/")) {
+    alert("Please select an image file.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    preview.src = e.target.result;
+    previewContainer.style.display = "block";
+    resultContainer.style.display = "none";
+  };
+  reader.readAsDataURL(file);
+}
+
+// Drag and drop functionality
+dropArea.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  dropArea.classList.add("dragover");
+});
+
+dropArea.addEventListener("dragleave", () => {
+  dropArea.classList.remove("dragover");
+});
+
+dropArea.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropArea.classList.remove("dragover");
+  const files = e.dataTransfer.files;
+  if (files.length > 0) {
+    handleFile(files[0]);
+  }
+});
+
+fileInput.addEventListener("change", (e) => {
+  if (e.target.files.length > 0) {
+    handleFile(e.target.files[0]);
+  }
+});
+
+// Close preview
+function closePreview() {
+  previewContainer.style.display = "none";
+  resultContainer.style.display = "none";
+}
+
+// Show loading
+function showLoading() {
+  loadingOverlay.style.display = "flex";
+}
+
+// Hide loading
+function hideLoading() {
+  loadingOverlay.style.display = "none";
+}
+
+// Predict character
+async function predictCharacter(imageData) {
+  try {
+    showLoading();
+
+    const response = await fetch("/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ image: imageData }),
+    });
+
+    const result = await response.json();
+    hideLoading();
+
+    if (result.success) {
+      displayResult(result);
+    } else {
+      alert("Error: " + result.error);
+    }
+  } catch (error) {
+    hideLoading();
+    console.error("Error:", error);
+    alert("An error occurred while processing the image.");
+  }
+}
+
+// Display result
+function displayResult(result) {
+  const character = characterData[result.character.toLowerCase()];
+
+  if (character) {
+    document.getElementById("result-character").textContent = character.name;
+    document.getElementById("character-name").textContent = character.name;
+    document.getElementById("character-description").textContent =
+      character.description;
+    document.getElementById("character-bounty").textContent = character.bounty;
+    document.getElementById("character-crew").textContent = character.crew;
+    document.getElementById("character-fruit").textContent = character.fruit;
+    document.getElementById("character-image").src = character.image;
+    document.getElementById("confidence-badge").textContent = `Confidence: ${(
+      result.confidence * 100
+    ).toFixed(1)}%`;
+
+    resultContainer.style.display = "block";
+  }
+}
+
+// Handle form submission
+document.addEventListener("DOMContentLoaded", function () {
+  initializeGallery();
+
+  // Smooth scrolling for navigation
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
   // Mobile menu toggle
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
-  const navLinks = document.querySelectorAll(".nav-link");
 
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
@@ -162,343 +332,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Close mobile menu when clicking on a link
-  navLinks.forEach((link) => {
+  document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");
       navMenu.classList.remove("active");
     });
   });
 
-  // Smooth scrolling for navigation links
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
+  // Auto-predict when image is selected
+  fileInput.addEventListener("change", async (e) => {
+    if (e.target.files.length > 0) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
 
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+      reader.onload = function (e) {
+        const imageData = e.target.result.split(",")[1]; // Remove data URL prefix
+        predictCharacter(imageData);
+      };
 
-      // Update active link
-      navLinks.forEach((l) => l.classList.remove("active"));
-      link.classList.add("active");
-    });
+      reader.readAsDataURL(file);
+    }
   });
 
-  // Initialize gallery
-  initializeGallery();
-
-  // Initialize drag and drop functionality
-  initializeDragAndDrop();
-});
-
-// Initialize gallery with character cards
-function initializeGallery() {
-  const galleryGrid = document.getElementById("gallery-grid");
-
-  Object.entries(characterData).forEach(([key, character]) => {
-    const galleryItem = document.createElement("div");
-    galleryItem.className = "gallery-item";
-    galleryItem.innerHTML = `
-            <img src="${character.image}" alt="${character.name}">
-            <div class="gallery-item-content">
-                <h3>${character.name}</h3>
-                <p>${character.description}</p>
-                <div class="gallery-stats">
-                    <span><strong>Bounty:</strong> ${character.bounty}</span>
-                    <span><strong>Crew:</strong> ${character.crew}</span>
-                </div>
-            </div>
-        `;
-    galleryGrid.appendChild(galleryItem);
-  });
-}
-
-// Initialize drag and drop functionality
-function initializeDragAndDrop() {
-  const dropArea = document.getElementById("drop-area");
-  const fileInput = document.getElementById("file-input");
-  const preview = document.getElementById("preview");
-  const previewContainer = document.getElementById("preview-container");
-  const resultContainer = document.getElementById("result-container");
-  const loadingOverlay = document.getElementById("loading-overlay");
-
-  // Drag and Drop Handlers
-  dropArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropArea.classList.add("dragover");
-  });
-
-  dropArea.addEventListener("dragleave", () => {
-    dropArea.classList.remove("dragover");
-  });
-
-  dropArea.addEventListener("drop", (e) => {
+  // Auto-predict when image is dropped
+  dropArea.addEventListener("drop", async (e) => {
     e.preventDefault();
     dropArea.classList.remove("dragover");
-    const file = e.dataTransfer.files[0];
-    handleFile(file);
-  });
+    const files = e.dataTransfer.files;
 
-  dropArea.addEventListener("click", () => fileInput.click());
-  fileInput.addEventListener("change", () => handleFile(fileInput.files[0]));
+    if (files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
 
-  function handleFile(file) {
-    if (!file || !file.type.startsWith("image/")) {
-      showNotification("Please upload a valid image file.", "error");
-      return;
-    }
+      reader.onload = function (e) {
+        const imageData = e.target.result.split(",")[1]; // Remove data URL prefix
+        predictCharacter(imageData);
+      };
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      preview.src = reader.result;
-      previewContainer.style.display = "block";
-      resultContainer.style.display = "none";
-
-      // Show loading overlay
-      loadingOverlay.style.display = "flex";
-
-      // Send to server
-      fetch("http://127.0.0.1:5000/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: reader.result }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          loadingOverlay.style.display = "none";
-
-          if (data.error) {
-            showNotification(`Error: ${data.error}`, "error");
-          } else {
-            displayResult(data.character, data.probabilities || []);
-          }
-        })
-        .catch((err) => {
-          loadingOverlay.style.display = "none";
-          showNotification("Error identifying the character.", "error");
-          console.error(err);
-        });
-    };
-
-    reader.onerror = () => {
-      showNotification("Error reading the file.", "error");
-    };
-
-    reader.readAsDataURL(file);
-  }
-}
-
-// Display classification result
-function displayResult(characterName, probabilities) {
-  const resultContainer = document.getElementById("result-container");
-  const characterInfo = characterData[characterName] || {
-    name: characterName,
-    description: "Character information not available.",
-    bounty: "Unknown",
-    crew: "Unknown",
-    fruit: "Unknown",
-    image: "https://via.placeholder.com/120x120/95a5a6/ffffff?text=?",
-  };
-
-  // Update character info
-  document.getElementById("character-name").textContent = characterInfo.name;
-  document.getElementById("character-description").textContent =
-    characterInfo.description;
-  document.getElementById("character-bounty").textContent =
-    characterInfo.bounty;
-  document.getElementById("character-crew").textContent = characterInfo.crew;
-  document.getElementById("character-fruit").textContent = characterInfo.fruit;
-  document.getElementById("character-img").src = characterInfo.image;
-
-  // Update confidence badge
-  const confidenceBadge = document.getElementById("confidence-badge");
-  const maxProbability = Math.max(...probabilities);
-  const confidencePercentage = Math.round(maxProbability * 100);
-  confidenceBadge.textContent = `${confidencePercentage}% Confidence`;
-
-  // Create probability chart
-  createProbabilityChart(probabilities);
-
-  // Show result container
-  resultContainer.style.display = "block";
-  resultContainer.scrollIntoView({ behavior: "smooth" });
-
-  // Show success notification
-  showNotification(
-    `Successfully identified as ${characterInfo.name}!`,
-    "success"
-  );
-}
-
-// Create probability chart
-function createProbabilityChart(probabilities) {
-  const chartContainer = document.getElementById("probability-chart");
-  chartContainer.innerHTML = "";
-
-  // Sample class names (you should get these from your model)
-  const classNames = Object.keys(characterData);
-
-  // Create chart bars
-  probabilities.forEach((prob, index) => {
-    if (index < classNames.length) {
-      const barContainer = document.createElement("div");
-      barContainer.style.cssText = `
-                display: flex;
-                align-items: center;
-                margin-bottom: 10px;
-                gap: 10px;
-            `;
-
-      const label = document.createElement("span");
-      label.textContent = classNames[index];
-      label.style.cssText = `
-                min-width: 100px;
-                font-size: 0.9rem;
-                font-weight: 500;
-            `;
-
-      const bar = document.createElement("div");
-      bar.style.cssText = `
-                flex: 1;
-                height: 20px;
-                background: #e0e0e0;
-                border-radius: 10px;
-                overflow: hidden;
-                position: relative;
-            `;
-
-      const fill = document.createElement("div");
-      fill.style.cssText = `
-                height: 100%;
-                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-                width: ${prob * 100}%;
-                transition: width 0.5s ease;
-            `;
-
-      const percentage = document.createElement("span");
-      percentage.textContent = `${Math.round(prob * 100)}%`;
-      percentage.style.cssText = `
-                min-width: 40px;
-                font-size: 0.8rem;
-                font-weight: 600;
-                color: #333;
-            `;
-
-      bar.appendChild(fill);
-      barContainer.appendChild(label);
-      barContainer.appendChild(bar);
-      barContainer.appendChild(percentage);
-      chartContainer.appendChild(barContainer);
+      reader.readAsDataURL(file);
     }
   });
-}
-
-// Close preview
-function closePreview() {
-  document.getElementById("preview-container").style.display = "none";
-  document.getElementById("result-container").style.display = "none";
-}
-
-// Show notification
-function showNotification(message, type = "info") {
-  // Create notification element
-  const notification = document.createElement("div");
-  notification.className = `notification notification-${type}`;
-  notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 20px;
-        border-radius: 10px;
-        color: white;
-        font-weight: 500;
-        z-index: 3000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-    `;
-
-  // Set background color based on type
-  switch (type) {
-    case "success":
-      notification.style.background =
-        "linear-gradient(135deg, #28a745 0%, #20c997 100%)";
-      break;
-    case "error":
-      notification.style.background =
-        "linear-gradient(135deg, #dc3545 0%, #c82333 100%)";
-      break;
-    default:
-      notification.style.background =
-        "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
-  }
-
-  notification.textContent = message;
-  document.body.appendChild(notification);
-
-  // Animate in
-  setTimeout(() => {
-    notification.style.transform = "translateX(0)";
-  }, 100);
-
-  // Remove after 3 seconds
-  setTimeout(() => {
-    notification.style.transform = "translateX(100%)";
-    setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
-}
-
-// Scroll to top functionality
-window.addEventListener("scroll", () => {
-  const scrollTop = document.createElement("button");
-  scrollTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
-  scrollTop.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    `;
-
-  if (window.scrollY > 300) {
-    if (!document.querySelector(".scroll-top")) {
-      document.body.appendChild(scrollTop);
-      scrollTop.classList.add("scroll-top");
-    }
-    document.querySelector(".scroll-top").style.display = "flex";
-  } else {
-    const existingScrollTop = document.querySelector(".scroll-top");
-    if (existingScrollTop) {
-      existingScrollTop.style.display = "none";
-    }
-  }
-});
-
-// Add scroll to top click handler
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".scroll-top")) {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
 });
