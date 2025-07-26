@@ -319,7 +319,7 @@ def get_model_info():
         'inference_time': '~50ms',
         'training_data': '1000+ images across 17 characters',
         'device': str(device),
-        'model_path': '/Users/jeremycheng/Desktop/Desktop - Jeremy\'s MacBook Pro/One_Piece_Model.pth'
+        'model_path': 'One_Piece_Model.pth'
     }
     return jsonify(model_info), 200
 

@@ -31,7 +31,7 @@ class OnePieceDataset(Dataset):
 
 
 # Data directory
-data_dir = '/Users/jeremycheng/Downloads/OnePieceDataset/Data/Data'
+data_dir = 'static/op_dateset/Data/Data'
 
 # Image Transformations - optimized for faster training
 transform = transforms.Compose([

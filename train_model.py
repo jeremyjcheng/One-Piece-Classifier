@@ -31,7 +31,7 @@ def main():
     print("=" * 60)
     
     # Check if dataset exists
-    data_dir = '/Users/jeremycheng/Downloads/OnePieceDataset/Data/Data'
+    data_dir = 'static/op_dateset/Data/Data'
     if not os.path.exists(data_dir):
         print(f"❌ Dataset not found at: {data_dir}")
         print("Please download the One Piece dataset and update the path in model.py")
