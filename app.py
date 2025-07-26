@@ -14,7 +14,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from model import model, dataset, transform, device, predict
 from face_detector import FaceDetector
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 CORS(app)
 
 # Initialize model and face detector
@@ -156,9 +156,7 @@ CHARACTER_DATA = {
 def index():
     return send_from_directory('.', 'index.html')
 
-@app.route('/static/<path:filename>')
-def static_files(filename):
-    return send_from_directory('static', filename)
+
 
 @app.route('/predict', methods=['POST'])
 def predict_route():
