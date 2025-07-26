@@ -159,6 +159,27 @@ class FaceDetector:
         
         return faces
     
+    def detect_face(self, image):
+        """Detect face and return (face_detected, cropped_image) tuple"""
+        try:
+            # Detect faces
+            faces = self.detect_faces(image)
+            
+            if len(faces) > 0:
+                # Face detected, crop around the largest face
+                cropped = self._get_optimal_crop(image, faces)
+                return True, cropped
+            else:
+                # No face detected, return center crop
+                cropped = self._center_crop_with_context(image)
+                return False, cropped
+                
+        except Exception as e:
+            print(f"Face detection error: {e}")
+            # Return center crop on error
+            cropped = self._center_crop_with_context(image)
+            return False, cropped
+    
     def _get_optimal_crop(self, image, faces):
         """Get optimal crop that ensures faces are well-positioned with more context"""
         height, width = image.shape[:2]
