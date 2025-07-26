@@ -1,8 +1,8 @@
 #!/bin/bash
-# Force Python 3.10 installation
-echo "Installing Python 3.10.12..."
-pyenv install 3.10.12
-pyenv global 3.10.12
+# Force Python 3.13 installation
+echo "Installing Python 3.13.4..."
+pyenv install 3.13.4
+pyenv global 3.13.4
 
 # Install dependencies
 echo "Installing Python dependencies..."
