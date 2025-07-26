@@ -221,8 +221,13 @@ def predict_route():
         # Get character info
         character_info = CHARACTER_DATA.get(predicted_class, {})
         
+        # Calculate confidence (max probability)
+        confidence = probabilities.max().item()
+        
         return jsonify({
+            'success': True,
             'character': predicted_class,
+            'confidence': confidence,
             'probabilities': probabilities.cpu().numpy().tolist(),
             'character_info': character_info
         })

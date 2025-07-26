@@ -2,7 +2,7 @@
 const characterData = {
   luffy: {
     name: "Monkey D. Luffy",
-    image: "static/gallery/op_dateset/Data/Data/Luffy/1.jpg",
+    image: "/static/op_dateset/Data/Data/Luffy/1.jpg",
     description:
       "Captain of the Straw Hat Pirates and wielder of the Gomu Gomu no Mi (Gum-Gum Fruit). Known for his rubber powers and unwavering determination to become the Pirate King.",
     bounty: "3,000,000,000 Berries",
@@ -11,7 +11,7 @@ const characterData = {
   },
   zoro: {
     name: "Roronoa Zoro",
-    image: "static/gallery/op_dateset/Data/Data/Zoro/1.jpg",
+    image: "/static/op_dateset/Data/Data/Zoro/1.jpg",
     description:
       "Swordsman and first mate of the Straw Hat Pirates. A master of the Three Sword Style and aspiring to become the world's greatest swordsman.",
     bounty: "1,111,000,000 Berries",
@@ -20,7 +20,7 @@ const characterData = {
   },
   nami: {
     name: "Nami",
-    image: "static/gallery/op_dateset/Data/Data/Nami/1.jpeg",
+    image: "/static/op_dateset/Data/Data/Nami/1.jpeg",
     description:
       "Navigator of the Straw Hat Pirates and expert cartographer. Skilled with the Clima-Tact and has a deep understanding of weather patterns.",
     bounty: "366,000,000 Berries",
@@ -29,7 +29,7 @@ const characterData = {
   },
   usopp: {
     name: "Usopp",
-    image: "static/gallery/op_dateset/Data/Data/Usopp/1.png",
+    image: "/static/op_dateset/Data/Data/Usopp/1.png",
     description:
       "Sniper of the Straw Hat Pirates and skilled inventor. Known for his incredible marksmanship and creative Pop Green ammunition.",
     bounty: "500,000,000 Berries",
@@ -38,7 +38,7 @@ const characterData = {
   },
   sanji: {
     name: "Vinsmoke Sanji",
-    image: "static/gallery/op_dateset/Data/Data/Sanji/1.jpg",
+    image: "/static/op_dateset/Data/Data/Sanji/1.jpg",
     description:
       "Chef and third strongest fighter of the Straw Hat Pirates. Master of the Black Leg Style and former member of the Vinsmoke family.",
     bounty: "1,032,000,000 Berries",
@@ -47,7 +47,7 @@ const characterData = {
   },
   chopper: {
     name: "Tony Tony Chopper",
-    image: "static/gallery/op_dateset/Data/Data/Chopper/1.png",
+    image: "/static/op_dateset/Data/Data/Chopper/1.png",
     description:
       "Doctor and reindeer of the Straw Hat Pirates. Ate the Hito Hito no Mi (Human-Human Fruit) and can transform into various forms.",
     bounty: "1,000 Berries",
@@ -56,7 +56,7 @@ const characterData = {
   },
   robin: {
     name: "Nico Robin",
-    image: "static/gallery/op_dateset/Data/Data/Robin/1.png",
+    image: "/static/op_dateset/Data/Data/Robin/1.png",
     description:
       "Archaeologist of the Straw Hat Pirates and wielder of the Hana Hana no Mi (Flower-Flower Fruit). The last survivor of Ohara.",
     bounty: "930,000,000 Berries",
@@ -65,7 +65,7 @@ const characterData = {
   },
   franky: {
     name: "Franky",
-    image: "static/gallery/op_dateset/Data/Data/Franky/1.png",
+    image: "/static/op_dateset/Data/Data/Franky/1.png",
     description:
       "Shipwright of the Straw Hat Pirates and a cyborg. Built the Thousand Sunny and is known for his radical personality and cola-powered attacks.",
     bounty: "394,000,000 Berries",
@@ -74,7 +74,7 @@ const characterData = {
   },
   brook: {
     name: "Brook",
-    image: "static/gallery/op_dateset/Data/Data/Brook/1.png",
+    image: "/static/op_dateset/Data/Data/Brook/1.png",
     description:
       "Musician and skeleton of the Straw Hat Pirates. Ate the Yomi Yomi no Mi (Revive-Revive Fruit) and is a master swordsman and musician.",
     bounty: "383,000,000 Berries",
@@ -83,7 +83,7 @@ const characterData = {
   },
   jinbei: {
     name: "Jinbe",
-    image: "static/gallery/op_dateset/Data/Data/Jinbei/1.jpg",
+    image: "/static/op_dateset/Data/Data/Jinbei/1.jpg",
     description:
       "Helmsman of the Straw Hat Pirates and former Warlord of the Sea. A fish-man karate master and former captain of the Sun Pirates.",
     bounty: "1,100,000,000 Berries",
@@ -92,7 +92,7 @@ const characterData = {
   },
   shanks: {
     name: "Red-Haired Shanks",
-    image: "static/gallery/op_dateset/Data/Data/Shanks/1.png",
+    image: "/static/op_dateset/Data/Data/Shanks/1.png",
     description:
       "Captain of the Red Hair Pirates and one of the Four Emperors. Former member of the Roger Pirates and mentor to Luffy.",
     bounty: "4,048,900,000 Berries",
@@ -101,7 +101,7 @@ const characterData = {
   },
   ace: {
     name: "Portgas D. Ace",
-    image: "static/gallery/op_dateset/Data/Data/Ace/1.jpg",
+    image: "/static/op_dateset/Data/Data/Ace/1.jpg",
     description:
       "Former commander of the Whitebeard Pirates and wielder of the Mera Mera no Mi (Flame-Flame Fruit). Brother of Luffy and Sabo.",
     bounty: "5,500,000,000 Berries",
@@ -110,7 +110,7 @@ const characterData = {
   },
   law: {
     name: "Trafalgar Law",
-    image: "static/gallery/op_dateset/Data/Data/Law/1.png",
+    image: "/static/op_dateset/Data/Data/Law/1.png",
     description:
       "Captain of the Heart Pirates and wielder of the Ope Ope no Mi (Op-Op Fruit). A former Warlord and ally of the Straw Hats.",
     bounty: "3,000,000,000 Berries",
@@ -119,7 +119,7 @@ const characterData = {
   },
   akainu: {
     name: "Sakazuki (Akainu)",
-    image: "static/gallery/op_dateset/Data/Data/Akainu/1.png",
+    image: "/static/op_dateset/Data/Data/Akainu/1.png",
     description:
       "Fleet Admiral of the Marines and wielder of the Magu Magu no Mi (Magma-Magma Fruit). Known for his absolute justice ideology.",
     bounty: "Unknown",
@@ -128,7 +128,7 @@ const characterData = {
   },
   crocodile: {
     name: "Sir Crocodile",
-    image: "static/gallery/op_dateset/Data/Data/Crocodile/1.png",
+    image: "/static/op_dateset/Data/Data/Crocodile/1.png",
     description:
       "Former Warlord and wielder of the Suna Suna no Mi (Sand-Sand Fruit). Leader of Baroque Works and former ruler of Alabasta.",
     bounty: "1,965,000,000 Berries",
@@ -137,7 +137,7 @@ const characterData = {
   },
   kurohige: {
     name: "Marshall D. Teach (Blackbeard)",
-    image: "static/gallery/op_dateset/Data/Data/Kurohige/1.png",
+    image: "/static/op_dateset/Data/Data/Kurohige/1.png",
     description:
       "Captain of the Blackbeard Pirates and wielder of the Yami Yami no Mi (Dark-Dark Fruit). One of the Four Emperors.",
     bounty: "3,996,000,000 Berries",
@@ -146,7 +146,7 @@ const characterData = {
   },
   mihawk: {
     name: "Dracule Mihawk",
-    image: "static/gallery/op_dateset/Data/Data/Mihawk/1.png",
+    image: "/static/op_dateset/Data/Data/Mihawk/1.png",
     description:
       "World's Greatest Swordsman and former Warlord of the Sea. Wielder of the legendary sword Yoru and member of Cross Guild.",
     bounty: "3,590,000,000 Berries",
@@ -155,7 +155,7 @@ const characterData = {
   },
   rayleigh: {
     name: "Silvers Rayleigh",
-    image: "static/gallery/op_dateset/Data/Data/Rayleigh/1.png",
+    image: "/static/op_dateset/Data/Data/Rayleigh/1.png",
     description:
       "Former first mate of the Roger Pirates and mentor to Luffy. Known as the 'Dark King' and a master of all three types of Haki.",
     bounty: "Unknown",
@@ -210,6 +210,10 @@ function handleFile(file) {
     preview.src = e.target.result;
     previewContainer.style.display = "block";
     resultContainer.style.display = "none";
+
+    // Auto-predict when file is loaded
+    const imageData = e.target.result.split(",")[1]; // Remove data URL prefix
+    predictCharacter(imageData);
   };
   reader.readAsDataURL(file);
 }
@@ -337,39 +341,5 @@ document.addEventListener("DOMContentLoaded", function () {
       hamburger.classList.remove("active");
       navMenu.classList.remove("active");
     });
-  });
-
-  // Auto-predict when image is selected
-  fileInput.addEventListener("change", async (e) => {
-    if (e.target.files.length > 0) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        const imageData = e.target.result.split(",")[1]; // Remove data URL prefix
-        predictCharacter(imageData);
-      };
-
-      reader.readAsDataURL(file);
-    }
-  });
-
-  // Auto-predict when image is dropped
-  dropArea.addEventListener("drop", async (e) => {
-    e.preventDefault();
-    dropArea.classList.remove("dragover");
-    const files = e.dataTransfer.files;
-
-    if (files.length > 0) {
-      const file = files[0];
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        const imageData = e.target.result.split(",")[1]; // Remove data URL prefix
-        predictCharacter(imageData);
-      };
-
-      reader.readAsDataURL(file);
-    }
   });
 });
