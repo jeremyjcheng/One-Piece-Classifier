@@ -279,7 +279,7 @@ def predict(model, image_tensor, device):
         image_tensor = image_tensor.to(device)
         outputs = model(image_tensor)
         probabilities = torch.nn.functional.softmax(outputs, dim=1)
-    return probabilities.cpu().numpy().flatten()
+    return probabilities
 
 def visualize_predictions(original_image, probabilities, class_names):
     fig, axarr = plt.subplots(1, 2, figsize=(14, 7))
