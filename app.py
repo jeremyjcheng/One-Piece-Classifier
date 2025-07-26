@@ -11,7 +11,7 @@ import sys
 # Add current directory to path for imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from model import load_model, predict_character
+from model import model, dataset, transform, device, predict
 from face_detector import FaceDetector
 
 app = Flask(__name__)
@@ -19,7 +19,6 @@ CORS(app)
 
 # Initialize model and face detector
 print("Initializing model and face detector...")
-model, device, transform, class_names = load_model()
 face_detector = FaceDetector()
 print("✅ Model and face detector initialized successfully!")
 
@@ -162,7 +161,7 @@ def static_files(filename):
     return send_from_directory('static', filename)
 
 @app.route('/predict', methods=['POST'])
-def predict():
+def predict_route():
     try:
         print("Request received: Starting image processing...")
         data = request.get_json()
@@ -212,7 +211,8 @@ def predict():
         # Run prediction
         print("Running model prediction...")
         try:
-            probabilities = predict_character(model, transformed_image, device)
+            probabilities = predict(model, transformed_image, device)
+            class_names = dataset.data.classes
             predicted_class = class_names[probabilities.argmax().item()]
             print(f"Prediction probabilities: {probabilities.cpu().numpy()}")
             print(f"Predicted class: {predicted_class}")
@@ -237,9 +237,9 @@ def predict():
 def model_info():
     return jsonify({
         'model_path': 'One_Piece_Model.pth',
-        'model_type': 'EfficientNet-B0',
-        'num_classes': len(class_names),
-        'classes': class_names,
+        'model_type': 'MobileNetV2',
+        'num_classes': len(dataset.data.classes),
+        'classes': dataset.data.classes,
         'device': str(device)
     })
 
