@@ -7,3 +7,5 @@ services:
     envVars:
       - key: PYTHONPATH
         value: /app
+      - key: PORT
+        value: 5001
